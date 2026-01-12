@@ -387,7 +387,7 @@ function sendEmailSummary(orderData) {
         payment_proof: orderData.paymentProof || 'No adjuntado'
     };
 
-    emailjs.send('service_pq8gsmr', 'template_gdmpoud', templateParams)
+    emailjs.send('service_pq8gsmr', 'p9szlfo    ', templateParams)
         .then(function(response) {
             console.log('Email enviado exitosamente:', response.status);
             showNotification(`Email de confirmación enviado a ${orderData.customerEmail}`, 'success');
@@ -734,4 +734,5 @@ function toggleMobileMenu() {
     const nav = document.querySelector('.main-nav');
     nav.classList.toggle('mobile-open');
 }
+
 
