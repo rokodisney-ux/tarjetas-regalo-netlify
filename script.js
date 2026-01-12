@@ -289,16 +289,6 @@ function processCheckout(event) {
         showNotification('¡Pedido recibido! Revisa tu email para confirmación', 'success');
         
         // Clear cart
-        cart = { items: [], total: 0 };
-        saveCartToStorage();
-        updateCartUI();
-        
-        // Close modal and reset form
-        closeCheckout();
-        event.target.reset();
-        
-        // Reset file upload
-        resetFileUpload();
         
         // Redirect to success page or show confirmation
         setTimeout(() => {
@@ -387,12 +377,16 @@ function sendEmailSummary(orderData) {
         payment_proof: orderData.paymentProof || 'No adjuntado'
     };
 
-    emailjs.send('service_pq8gsmr', 'p9szlfo    ', templateParams)
+    emailjs.send('service_pq8gsmr', 'template_gdmpoud    ', templateParams)
         .then(function(response) {
             console.log('Email enviado exitosamente:', response.status);
             showNotification(`Email de confirmación enviado a ${orderData.customerEmail}`, 'success');
-        })
-        .catch(function(error) {
+                    
+        // Cerrar modal y vaciar carrito DESPUÉS de enviar email exitosamente
+        cart = { items: [], total: 0 };
+        saveCartToStorage();
+        updateCartUI();
+        closeCheckout();
             console.error('Error al enviar email:', error);
             showNotification('Error al enviar email. El pedido fue registrado.', 'warning');
         });    // Enviar copia a tu correo (vendedor)
@@ -734,5 +728,6 @@ function toggleMobileMenu() {
     const nav = document.querySelector('.main-nav');
     nav.classList.toggle('mobile-open');
 }
+
 
 
