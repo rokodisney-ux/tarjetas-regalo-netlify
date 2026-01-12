@@ -391,8 +391,8 @@ function sendEmailSummary(orderData) {
     .catch(function(error) {
         console.error('Error al enviar email:', error);
         showNotification('Error al enviar email. El pedido fue registrado.', 'warning');
-    sendEmailToSeller(orderData);
-}
+
+    });}
 
 // Send Email to Seller (TÚ)
 function sendEmailToSeller(orderData) {
@@ -419,18 +419,24 @@ function sendEmailToSeller(orderData) {
         Wallet: TCJMLCURwm53B3e7Vrtyv2oohDkvZa5HaT
     `;
     
-    console.log('Email enviado a vendedor (tú): erikiya2405@gmail.com');
-    console.log('Contenido para vendedor:', sellerEmailContent);
-    
-    if (uploadedFile) {
-        console.log('📎 Archivo adjunto:', uploadedFile.name, 'Tamaño:', (uploadedFile.size / 1024).toFixed(2) + 'KB');
-        // En producción, aquí enviarías el archivo adjunto real
-        showNotification('Comprobante de pago incluido en el pedido', 'success');
-    }
-    
-    // En producción, aquí enviarías email real a erikiya2405@gmail.com con archivo adjunto
-    // Por ahora simulamos el envío
-    showNotification('Notificación enviada al vendedor', 'success');
+// Enviar email real con EmailJS
+    const sellerTemplateParams = {
+        customer_email: orderData.customerEmail,
+        customer_name: orderData.customerName || 'No proporcionado',
+        order_id: Date.now(),
+        products: cart.items.map(item => `${item.name} x${item.quantity}: $${(item.price * item.quantity).toFixed(2)} USD`).join('\n'),
+        total: `$${cart.total.toFixed(2)} USD`,
+        tx_hash: orderData.txHash,
+        wallet: 'TCJMLCURwm53B3e7Vrtyv2oohDkvZa5HaT',
+        order_date: new Date().toLocaleString('es-CO')
+    };    
+    emailjs.send('service_pq8gsmr', 'template_1d9l65o', sellerTemplateParams)
+        .then(function(response) {
+            console.log('Email enviado al vendedor exitosamente:', response.status);
+        })
+        .catch(function(error) {
+            console.error('Error al enviar email al vendedor:', error);
+        })
 }
 
 // Send WhatsApp Notification (SOLO PARA TI - EL VENDEDOR)
@@ -729,6 +735,7 @@ function toggleMobileMenu() {
     const nav = document.querySelector('.main-nav');
     nav.classList.toggle('mobile-open');
 }
+
 
 
 
