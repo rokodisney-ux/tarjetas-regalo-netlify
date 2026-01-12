@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinCodes Virtuales - Pines Colombia Turquía Netflix Gift Card</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-credit-card"></i>
+                    <span>PinCodes</span>
+                    <span class="highlight">Virtuales</span>
+                </div>
+                <div class="header-actions">
+                    <div class="cart">
+                        <a href="#" class="btn btn-primary" onclick="openCheckout()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                            <span class="cart-total">artículos</span>
+                            <span class="cart-price">0,00</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#" class="active"><i class="fas fa-home"></i> INICIO</a></li>
+                <li><a href="products"><i class="fas fa-store"></i> TIENDA</a></li>
+                <li><a href="payment"><i class="fas fa-credit-card"></i> PAGAR</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Tarjetas de Regalo Netflix</h1>
+                <p>Los mejores precios en pines Netflix para Colombia, Turquía y más</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-large btn-primary">Comprar Ahora</a>
+                    <a href="#" class="btn btn-large btn-outline">Ver Catálogo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <h2 class="section-title">Tarjetas de Regalo Netflix</h2>
+            <div class="products-grid">
+                <!-- Product 1: Colombia -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect fill='%23E50914' width='200' height='200'/%3E%3Ctext x='50' y='100' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ENetflix%3C/text%3E%3C/svg%3E" alt="Pines Netflix Colombia">
+                    </div>
+                    <div class="product-info">
+                        <h3>Pines Netflix Colombia</h3>
+                        <div class="value-selector">
+                            <label>Selecciona el valor</label>
+                            <div class="value-options">
+                                <div class="value-option">
+                                    <input type="radio" id="colombia-20k" name="colombia-value" value="20k" data-price="4.6" checked>
+                                    <label for="colombia-20k">20.000 COP</label>
+                                </div>
+                                <div class="value-option">
+                                    <input type="radio" id="colombia-30k" name="colombia-value" value="30k" data-price="6.5">
+                                    <label for="colombia-30k">30.000 COP</label>
+                                </div>
+                                <div class="value-option">
+                                    <input type="radio" id="colombia-35k" name="colombia-value" value="35k" data-price="7.2">
+                                    <label for="colombia-35k">35.000 COP</label>
+                                </div>
+                                <div class="value-option">
+                                    <input type="radio" id="colombia-40k" name="colombia-value" value="40k" data-price="8.8">
+                                    <label for="colombia-40k">40.000 COP</label>
+                                </div>
+                                <div class="value-option">
+                                    <input type="radio" id="colombia-50k" name="colombia-value" value="50k" data-price="10.5">
+                                    <label for="colombia-50k">50.000 COP</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="value-display" id="colombia-price-display">4.60 USD</div>
+                        <div class="product-actions">
+                            <button class="btn btn-outline btn-sm">Vista rápida</button>
+                            <button class="btn btn-outline btn-sm"><i class="fas fa-heart"></i></button>
+                        </div>
+                        <div class="quantity-selector">
+                            <label>Cantidad</label>
+                            <div class="quantity-controls">
+                                <button type="button" onclick="decreaseQuantity('colombia')">-</button>
+                                <input type="number" id="qty-colombia" value="1" min="1" max="10" readonly>
+                                <button type="button" onclick="increaseQuantity('colombia')">+</button>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-full" onclick="addToCartColombia()">Agregar al Carrito</button>
+                    </div>
+                </div>
+
+                <!-- Product 2: USA (AGOTADO) -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect fill='%23E50914' width='200' height='200'/%3E%3Ctext x='50' y='100' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ENetflix%3C/text%3E%3C/svg%3E" alt="Pines Netflix USA">
+                    </div>
+                    <div class="product-info">
+                        <h3>Pines Netflix USA</h3>
+                        <p class="status-badge">AGOTADO</p>
+                        <button class="btn btn-primary btn-full" disabled>No disponible</button>
+                    </div>
+                </div>
+
+                <!-- Product 3: Turkey (AGOTADO) -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect fill='%23E50914' width='200' height='200'/%3E%3Ctext x='50' y='100' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ENetflix%3C/text%3E%3C/svg%3E" alt="Pines Netflix Turquía">
+                    </div>
+                    <div class="product-info">
+                        <h3>Pines Netflix Turquía</h3>
+                        <p class="status-badge">AGOTADO</p>
+                        <button class="btn btn-primary btn-full" disabled>No disponible</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function openCheckout() {
+            alert('Ir al carrito de compras');
+        }
+        function addToCartColombia() {
+            alert('Producto agregado al carrito');
+        }
+        function decreaseQuantity(product) {
+            const input = document.getElementById('qty-' + product);
+            if (input.value > 1) input.value--;
+        }
+        function increaseQuantity(product) {
+            const input = document.getElementById('qty-' + product);
+            if (input.value < 10) input.value++;
+        }
+    </script>
+</body>
+</html>
