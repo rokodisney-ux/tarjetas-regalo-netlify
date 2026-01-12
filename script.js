@@ -375,14 +375,27 @@ function sendEmailSummary(orderData) {
         Gracias por tu compra en PinCodes Virtuales!
     `;
     
-    console.log('Email enviado a cliente:', orderData.customerEmail);
-    console.log('Contenido:', emailContent);
-    
-    // En producción, aquí usarías un servicio como EmailJS, SendGrid, o backend
-    // Por ahora simulamos el envío
-    showNotification(`Email de resumen enviado a ${orderData.customerEmail}`, 'success');
-    
-    // Enviar copia a tu correo (vendedor)
+    // Enviar email con EmailJS
+    const templateParams = {
+        email: orderData.customerEmail,
+        customer_name: orderData.customerName || 'Cliente',
+        order_id: Date.now(),
+        products: cart.items.map(item => `${item.name} x${item.quantity}: $${(item.price * item.quantity).toFixed(2)} USD`).join('\n'),
+        total: `$${cart.total.toFixed(2)} USD`,
+        tx_hash: orderData.txHash,
+        wallet: 'TCJMLCURwm53B3e7Vrtyv2oohDkvZa5HaT',
+        payment_proof: orderData.paymentProof || 'No adjuntado'
+    };
+
+    emailjs.send('service_pq8gsmr', 'template_gdmpoud', templateParams)
+        .then(function(response) {
+            console.log('Email enviado exitosamente:', response.status);
+            showNotification(`Email de confirmación enviado a ${orderData.customerEmail}`, 'success');
+        })
+        .catch(function(error) {
+            console.error('Error al enviar email:', error);
+            showNotification('Error al enviar email. El pedido fue registrado.', 'warning');
+        });    // Enviar copia a tu correo (vendedor)
     sendEmailToSeller(orderData);
 }
 
@@ -721,3 +734,4 @@ function toggleMobileMenu() {
     const nav = document.querySelector('.main-nav');
     nav.classList.toggle('mobile-open');
 }
+
