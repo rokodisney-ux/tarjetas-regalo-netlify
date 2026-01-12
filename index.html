@@ -17,13 +17,14 @@
                     <span>PinCodes</span>
                     <span class="highlight">Virtuales</span>
                 </div>
+                </div>
                 <div class="header-actions">
                     <div class="cart">
                         <a href="#" class="btn btn-primary" onclick="openCheckout()">
                             <i class="fas fa-shopping-cart"></i>
                             <span class="cart-count">0</span>
                             <span class="cart-total">artículos</span>
-                            <span class="cart-price">0,00</span>
+                            <span class="cart-price">0,00€</span>
                         </a>
                     </div>
                 </div>
@@ -36,8 +37,10 @@
         <div class="container">
             <ul class="nav-menu">
                 <li><a href="#" class="active"><i class="fas fa-home"></i> INICIO</a></li>
-                <li><a href="products"><i class="fas fa-store"></i> TIENDA</a></li>
-                <li><a href="payment"><i class="fas fa-credit-card"></i> PAGAR</a></li>
+                <li><a href="#"><i class="fas fa-question-circle"></i> CÓMO FUNCIONA</a></li>
+                <li><a href="#"><i class="fas fa-shield-alt"></i> SEGURIDAD</a></li>
+                <li><a href="#"><i class="fas fa-user"></i> MI CUENTA</a></li>
+                <li><a href="#"><i class="fas fa-headset"></i> SOPORTE</a></li>
             </ul>
         </div>
     </nav>
@@ -45,113 +48,183 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Tarjetas de Regalo Netflix</h1>
-                <p>Los mejores precios en pines Netflix para Colombia, Turquía y más</p>
-                <div class="hero-buttons">
-                    <a href="#" class="btn btn-large btn-primary">Comprar Ahora</a>
-                    <a href="#" class="btn btn-large btn-outline">Ver Catálogo</a>
-                </div>
-            </div>
+            <h1>Pines Virtuales Internacionales</h1>
+            <p>Compra códigos digitales de forma segura y recíbelos al instante</p>
         </div>
     </section>
 
     <!-- Products Section -->
     <section class="products">
         <div class="container">
-            <h2 class="section-title">Tarjetas de Regalo Netflix</h2>
+            <div class="section-header">
+                <h2>Nuestros Productos</h2>
+                <p>Selecciona el pin que necesitas</p>
+            </div>
+            
             <div class="products-grid">
-                <!-- Product 1: Colombia -->
+                <!-- Colombia Pin -->
                 <div class="product-card">
+                    <div class="product-badge">Disponible</div>
                     <div class="product-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect fill='%23E50914' width='200' height='200'/%3E%3Ctext x='50' y='100' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ENetflix%3C/text%3E%3C/svg%3E" alt="Pines Netflix Colombia">
+                        <img src="https://images.unsplash.com/photo-1611329532992-7dfb5d6b0e89?w=400" alt="Pin Colombia">
                     </div>
-                    <div class="product-info">
-                        <h3>Pines Netflix Colombia</h3>
-                        <div class="value-selector">
-                            <label>Selecciona el valor</label>
-                            <div class="value-options">
-                                <div class="value-option">
-                                    <input type="radio" id="colombia-20k" name="colombia-value" value="20k" data-price="4.6" checked>
-                                    <label for="colombia-20k">20.000 COP</label>
-                                </div>
-                                <div class="value-option">
-                                    <input type="radio" id="colombia-30k" name="colombia-value" value="30k" data-price="6.5">
-                                    <label for="colombia-30k">30.000 COP</label>
-                                </div>
-                                <div class="value-option">
-                                    <input type="radio" id="colombia-35k" name="colombia-value" value="35k" data-price="7.2">
-                                    <label for="colombia-35k">35.000 COP</label>
-                                </div>
-                                <div class="value-option">
-                                    <input type="radio" id="colombia-40k" name="colombia-value" value="40k" data-price="8.8">
-                                    <label for="colombia-40k">40.000 COP</label>
-                                </div>
-                                <div class="value-option">
-                                    <input type="radio" id="colombia-50k" name="colombia-value" value="50k" data-price="10.5">
-                                    <label for="colombia-50k">50.000 COP</label>
-                                </div>
-                            </div>
+                    <div class="product-content">
+                        <h3>Pin Colombia</h3>
+                        <p class="product-description">Código virtual para Colombia</p>
+                        <div class="product-price">
+                            <span class="price">9,00€</span>
                         </div>
-                        <div class="value-display" id="colombia-price-display">4.60 USD</div>
-                        <div class="product-actions">
-                            <button class="btn btn-outline btn-sm">Vista rápida</button>
-                            <button class="btn btn-outline btn-sm"><i class="fas fa-heart"></i></button>
-                        </div>
-                        <div class="quantity-selector">
-                            <label>Cantidad</label>
-                            <div class="quantity-controls">
-                                <button type="button" onclick="decreaseQuantity('colombia')">-</button>
-                                <input type="number" id="qty-colombia" value="1" min="1" max="10" readonly>
-                                <button type="button" onclick="increaseQuantity('colombia')">+</button>
-                            </div>
-                        </div>
-                        <button class="btn btn-primary btn-full" onclick="addToCartColombia()">Agregar al Carrito</button>
+                        <button class="btn btn-primary add-to-cart" 
+                                data-name="Pin Colombia" 
+                                data-price="9.00" 
+                                data-image="https://images.unsplash.com/photo-1611329532992-7dfb5d6b0e89?w=400">
+                            <i class="fas fa-shopping-cart"></i>
+                            Agregar al Carrito
+                        </button>
                     </div>
                 </div>
 
-                <!-- Product 2: USA (AGOTADO) -->
-                <div class="product-card">
+                <!-- USA Pin -->
+                <div class="product-card out-of-stock">
+                    <div class="product-badge out-of-stock-badge">Agotado</div>
                     <div class="product-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect fill='%23E50914' width='200' height='200'/%3E%3Ctext x='50' y='100' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ENetflix%3C/text%3E%3C/svg%3E" alt="Pines Netflix USA">
+                        <img src="https://images.unsplash.com/photo-1523554888454-84137e72c3ce?w=400" alt="Pin USA">
                     </div>
-                    <div class="product-info">
-                        <h3>Pines Netflix USA</h3>
-                        <p class="status-badge">AGOTADO</p>
-                        <button class="btn btn-primary btn-full" disabled>No disponible</button>
+                    <div class="product-content">
+                        <h3>Pin USA</h3>
+                        <p class="product-description">Código virtual para Estados Unidos</p>
+                        <div class="product-price">
+                            <span class="price">8,00€</span>
+                        </div>
+                        <button class="btn btn-secondary" disabled>
+                            <i class="fas fa-times-circle"></i>
+                            AGOTADO
+                        </button>
                     </div>
                 </div>
 
-                <!-- Product 3: Turkey (AGOTADO) -->
-                <div class="product-card">
+                <!-- Turkey Pin -->
+                <div class="product-card out-of-stock">
+                    <div class="product-badge out-of-stock-badge">Agotado</div>
                     <div class="product-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect fill='%23E50914' width='200' height='200'/%3E%3Ctext x='50' y='100' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ENetflix%3C/text%3E%3C/svg%3E" alt="Pines Netflix Turquía">
+                        <img src="https://images.unsplash.com/photo-1541417904950-b855846fe074?w=400" alt="Pin Turquía">
                     </div>
-                    <div class="product-info">
-                        <h3>Pines Netflix Turquía</h3>
-                        <p class="status-badge">AGOTADO</p>
-                        <button class="btn btn-primary btn-full" disabled>No disponible</button>
+                    <div class="product-content">
+                        <h3>Pin Turquía</h3>
+                        <p class="product-description">Código virtual para Turquía</p>
+                        <div class="product-price">
+                            <span class="price">7,50€</span>
+                        </div>
+                        <button class="btn btn-secondary" disabled>
+                            <i class="fas fa-times-circle"></i>
+                            AGOTADO
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Netflix Gift Card -->
+                <div class="product-card featured">
+                    <div class="product-badge featured-badge">Popular</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=400" alt="Netflix Gift Card">
+                    </div>
+                    <div class="product-content">
+                        <h3>Netflix Gift Card</h3>
+                        <p class="product-description">Tarjeta regalo Netflix - Varias denominaciones</p>
+                        <div class="product-price">
+                            <span class="price">Desde 10,00€</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart" 
+                                data-name="Netflix Gift Card" 
+                                data-price="10.00" 
+                                data-image="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=400">
+                            <i class="fas fa-shopping-cart"></i>
+                            Agregar al Carrito
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <script>
-        function openCheckout() {
-            alert('Ir al carrito de compras');
-        }
-        function addToCartColombia() {
-            alert('Producto agregado al carrito');
-        }
-        function decreaseQuantity(product) {
-            const input = document.getElementById('qty-' + product);
-            if (input.value > 1) input.value--;
-        }
-        function increaseQuantity(product) {
-            const input = document.getElementById('qty-' + product);
-            if (input.value < 10) input.value++;
-        }
-    </script>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Entrega Instantánea</h3>
+                    <p>Recibe tu código en segundos</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-lock"></i>
+                    <h3>100% Seguro</h3>
+                    <p>Pagos encriptados y protegidos</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <h3>Soporte 24/7</h3>
+                    <p>Asistencia cuando la necesites</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Códigos Verificados</h3>
+                    <p>Garantía de funcionamiento</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sobre Nosotros</h4>
+                    <p>Tu tienda confiable para códigos digitales internacionales</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> support@pincodes.com</p>
+                    <p><i class="fas fa-phone"></i> +34 900 123 456</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PinCodes Virtuales. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCheckout()">&times;</span>
+            <h2>Tu Carrito de Compras</h2>
+            <div id="cartItems"></div>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">0,00€</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">0,00€</span>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-block" onclick="proceedToCheckout()">
+                <i class="fas fa-credit-card"></i> Proceder al Pago
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
