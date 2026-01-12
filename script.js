@@ -278,24 +278,20 @@ function processCheckout(event) {
     setTimeout(() => {
         hideLoading(submitBtn);
         
-        // Send email summary to customer
-        sendEmailSummary(orderData);
+        // PRIMERO: Cerrar modal y vaciar carrito
+        cart = { items: [], total: 0 };
+        saveCartToStorage();
+        updateCartUI();
+        closeCheckout();
         
-        // Send WhatsApp notification ONLY TO YOU (the owner)
-        // sendWhatsAppNotification(orderData); // Desactivado - solo email
+        // SEGUNDO: Enviar emails (cliente y vendedor)
+        sendEmailSummary(orderData);
         sendEmailToSeller(orderData);
         
-        // Show success message
-        showNotification('¡Pedido recibido! Revisa tu email para confirmación', 'success');
+        // Mostrar notificación de éxito
+        showNotification('¡Pedido enviado! Recibirás un email con los detalles', 'success');
         
-        // Clear cart
-        
-        // Redirect to success page or show confirmation
-        setTimeout(() => {
-            showOrderConfirmation(orderData);
-        }, 2000);
-        
-    }, 2000);
+    }, 20);}, 2000);
 }
 
 // File Upload Functions
@@ -382,17 +378,7 @@ function sendEmailSummary(orderData) {
             console.log('Email enviado exitosamente:', response.status);
             showNotification(`Email de confirmación enviado a ${orderData.customerEmail}`, 'success');
                     
-        // Cerrar modal y vaciar carrito DESPUÉS de enviar email exitosamente
-        cart = { items: [], total: 0 };
-        saveCartToStorage();
-        updateCartUI();
-        closeCheckout();
-                })
-    .catch(function(error) {
-        console.error('Error al enviar email:', error);
-        showNotification('Error al enviar email. El pedido fue registrado.', 'warning');
-
-    });}
+            });}
 
 // Send Email to Seller (TÚ)
 function sendEmailToSeller(orderData) {
@@ -735,6 +721,7 @@ function toggleMobileMenu() {
     const nav = document.querySelector('.main-nav');
     nav.classList.toggle('mobile-open');
 }
+
 
 
 
