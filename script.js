@@ -387,9 +387,10 @@ function sendEmailSummary(orderData) {
         saveCartToStorage();
         updateCartUI();
         closeCheckout();
-            console.error('Error al enviar email:', error);
-            showNotification('Error al enviar email. El pedido fue registrado.', 'warning');
-        });    // Enviar copia a tu correo (vendedor)
+                })
+    .catch(function(error) {
+        console.error('Error al enviar email:', error);
+        showNotification('Error al enviar email. El pedido fue registrado.', 'warning');
     sendEmailToSeller(orderData);
 }
 
@@ -728,6 +729,7 @@ function toggleMobileMenu() {
     const nav = document.querySelector('.main-nav');
     nav.classList.toggle('mobile-open');
 }
+
 
 
 
