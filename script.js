@@ -291,8 +291,7 @@ function processCheckout(event) {
         // Mostrar notificación de éxito
         showNotification('¡Pedido enviado! Recibirás un email con los detalles', 'success');
         
-    }, 20);}, 2000);
-}
+    }, 2000);
 
 // File Upload Functions
 let uploadedFile = null;
@@ -378,8 +377,11 @@ function sendEmailSummary(orderData) {
             console.log('Email enviado exitosamente:', response.status);
             showNotification(`Email de confirmación enviado a ${orderData.customerEmail}`, 'success');
                     
-            });}
-
+    })
+    .catch(function(error) {
+        console.error('Error al enviar email:', error);
+    });
+}
 // Send Email to Seller (TÚ)
 function sendEmailToSeller(orderData) {
     const sellerEmailContent = `
@@ -721,6 +723,7 @@ function toggleMobileMenu() {
     const nav = document.querySelector('.main-nav');
     nav.classList.toggle('mobile-open');
 }
+
 
 
 
