@@ -284,11 +284,7 @@ function processCheckout(event) {
         updateCartUI();
         closeCheckout();
         
-        // SEGUNDO: Enviar emails (cliente y vendedor)
-        sendEmailSummary(orderData);
-        sendEmailToSeller(orderData);
-        
-        // Mostrar notificación de éxito
+        // SEGUNDO: Enviar notificación por Telegram        // Mostrar notificación de éxito
         showNotification('¡Pedido enviado! Recibirás un email con los detalles', 'success');
         
     }, 2000);
@@ -724,6 +720,24 @@ function toggleMobileMenu() {
     const nav = document.querySelector('.main-nav');
     nav.classList.toggle('mobile-open');
 }
+
+// Send Telegram Notification
+function sendTelegramNotification(orderData) {
+    const productos = orderData.cart.items.map(item => 
+        `- ${item.name} x${item.quantity}: $${(item.price * item.quantity).toFixed(2)} USD`
+    ).join('%0A');
+    
+    const comprobanteInfo = orderData.paymentProof ? `%0A📎 Comprobante: ${orderData.paymentProof} (El cliente debe enviar la imagen)` : '%0A⚠️ Sin comprobante adjuntado';
+    
+    const message = `🛒 NUEVO PEDIDO - PinCodes Virtuales%0A%0A📧 Cliente: ${orderData.customerEmail}%0A👤 Nombre: ${orderData.customerName || 'No proporcionado'}%0A%0A🛍️ Productos:%0A${productos}%0A%0A💰 Total: $${orderData.total.toFixed(2)} USD%0A💳 Hash: ${orderData.txHash}${comprobanteInfo}%0A%0A⏰ Fecha: ${new Date().toLocaleString('es-CO')}%0A%0A🔍 VERIFICAR PAGO Y ENVIAR PINES%0A💼 Wallet: ${USDT_WALLET}`;
+    
+    const telegramUrl = `https://t.me/Juanjosecodes?text=${message}`;
+    
+    window.open(telegramUrl, '_blank');
+    
+    showNotification('¡Pedido enviado! Se abrió Telegram para contactarte', 'success');
+}
+
 
 
 
