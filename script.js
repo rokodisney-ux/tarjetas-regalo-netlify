@@ -366,8 +366,8 @@ function sendEmailSummary(orderData) {
         email: orderData.customerEmail,
         customer_name: orderData.customerName || 'Cliente',
         order_id: Date.now(),
-        products: cart.items.map(item => `${item.name} x${item.quantity}: $${(item.price * item.quantity).toFixed(2)} USD`).join('\n'),
-        total: `$${cart.total.toFixed(2)} USD`,
+        products: orderData.cart.items.map(item => `${item.name} x${item.quantity}: $${(item.price * item.quantity).toFixed(2)} USD`).join('\n'),
+        products: ordtotal: `$${orderData.cart.totalerData.cart.items.map.toFixed(2)} USD`,
         tx_hash: orderData.txHash,
         wallet: 'TCJMLCURwm53B3e7Vrtyv2oohDkvZa5HaT',
         payment_proof: orderData.paymentProof || 'No adjuntado'
@@ -413,8 +413,8 @@ function sendEmailToSeller(orderData) {
         customer_email: orderData.customerEmail,
         customer_name: orderData.customerName || 'No proporcionado',
         order_id: Date.now(),
-        products: cart.items.map(item => `${item.name} x${item.quantity}: $${(item.price * item.quantity).toFixed(2)} USD`).join('\n'),
-        total: `$${cart.total.toFixed(2)} USD`,
+        products: orderData.cart.items.map(item => `${item.name} x${item.quantity}: $${(item.price * item.quantity).toFixed(2)} USD`).join('\n'),
+        products: ordtotal: `$${orderData.cart.totalerData.cart.items.map.toFixed(2)} USD`,
         tx_hash: orderData.txHash,
         wallet: 'TCJMLCURwm53B3e7Vrtyv2oohDkvZa5HaT',
         order_date: new Date().toLocaleString('es-CO')
@@ -724,6 +724,7 @@ function toggleMobileMenu() {
     const nav = document.querySelector('.main-nav');
     nav.classList.toggle('mobile-open');
 }
+
 
 
 
