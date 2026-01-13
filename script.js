@@ -296,6 +296,7 @@ function processCheckout(event) {
 // File Upload Functions
 let uploadedFile = null;
 
+    }
 function handleFileSelect(event) {
     const file = event.target.files[0];
     if (file) {
@@ -723,6 +724,7 @@ function toggleMobileMenu() {
     const nav = document.querySelector('.main-nav');
     nav.classList.toggle('mobile-open');
 }
+
 
 
 
